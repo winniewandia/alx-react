@@ -1,0 +1,82 @@
+.App-body {
+  height: 700px;
+  margin-left: 50px;
+}
+
+.App-body p {
+  margin-top: 50px;
+  font-size: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.App-footer {
+  text-align: center;
+  font-style: italic;
+  font-size: larger;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.App-header {
+  background-color: white;
+  /* min-height: 100vh; */
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  /* justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: #D93847;
+}
+
+button {
+  margin: 10px;
+}
+.email {
+  padding: 10px;
+}
+
+.emailInput {
+  padding: 10px;
+}
+
+.password {
+  padding: 10px;
+}
+
+.passwordInput{
+  padding: 10px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  width: 120px;
+  height: 120px;
+  margin-right: 20px;
+}
+
+.line-div {
+  width: 99.5%;
+  height: 3px;
+  background-color: #D93847;
+  align-content: center;
+  /* display: flex;
+  align-self: center; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+/* .App-link {
+  color: #61dafb;
+} */
+
+/* @keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
