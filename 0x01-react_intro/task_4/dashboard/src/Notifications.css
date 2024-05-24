@@ -1,0 +1,25 @@
+.closeImage {
+    width: 20px;
+    height: 20px;
+}
+
+.default {
+    color: blue;
+}
+
+.Notifications {
+    border: 2px dashed #D93847;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: right; */
+    /* width: 100%; */
+}
+
+.urgent {
+    color: red;
+}
+
+/* .unorderedList {
+    
+} */
