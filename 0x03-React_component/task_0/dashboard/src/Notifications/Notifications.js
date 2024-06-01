@@ -5,14 +5,14 @@ import NotificationItem from './NotificationItem';
 import PropTypes from 'prop-types';
 
 function Notification({displayDrawer, listNotifications}) {
-    if (listNotifications.length === 0 && displayDrawer === false) {
+    if (listNotifications.length === 0 && displayDrawer === true) {
         return (
             <div className='menuItem'>
                 <p>Your notifications</p>
                 <p>No new notification for now</p>
             </div>
         );
-    } else if (listNotifications.length !== 0 && displayDrawer === false) {
+    } else if (listNotifications.length !== 0 && displayDrawer === true) {
         return (
             <div className='menuItem'>
                 <p>Your notifications</p>
@@ -34,6 +34,8 @@ function Notification({displayDrawer, listNotifications}) {
                 </div>
             </div>
         );
+    } else {
+        return null;
     }
     // return (
     //     <>
