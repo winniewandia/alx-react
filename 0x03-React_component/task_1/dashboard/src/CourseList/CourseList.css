@@ -1,0 +1,20 @@
+.course-list {
+    height: 700px;
+}
+
+#CourseList {
+    border: 1px solid #9b9797;
+    width: 95%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    margin-left: 30px;
+}
+
+th {
+    /* text-align: left; */
+    border: 1px solid #9b9797;
+}
+
+#second {
+    text-align: left;
+}
