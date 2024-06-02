@@ -4,7 +4,7 @@ import './App.css';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import CourseList from '../CourseList/CourseList';
 import { getLatestNotification } from '../utils/utils';
 
@@ -29,7 +29,7 @@ class App extends React.Component{
   }
 
   static propTypes = {
-    logOut: propTypes.func
+    logOut: PropTypes.func
   };
 
   static defaultProps = {
@@ -81,8 +81,8 @@ class App extends React.Component{
 }
 }
 
-App.propTypes = {
-  isLoggedIn: propTypes.bool
+App.PropTypes = {
+  isLoggedIn: PropTypes.bool
 };
 
 App.defaultProps = {
