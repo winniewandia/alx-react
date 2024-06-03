@@ -7,6 +7,8 @@ import Footer from '../Footer/Footer';
 import PropTypes from 'prop-types';
 import CourseList from '../CourseList/CourseList';
 import { getLatestNotification } from '../utils/utils';
+import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
+import BodySection from '../BodySection/BodySection';
 
 
 const listCourses = [
@@ -62,7 +64,12 @@ class App extends React.Component{
         <Notifications displayDrawer={true} listNotifications={listNotifications} />
 
         <div className='line-div' />
-        <CourseList listCourses={listCourses} />
+        <BodySectionWithMarginBottom title='Course list'>
+          <CourseList listCourses={listCourses} />
+        </BodySectionWithMarginBottom>
+        <BodySection title="News from the School">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </BodySection>
         <div className='line-div' />
         <Footer />
       </div>
@@ -75,7 +82,9 @@ class App extends React.Component{
         <Notifications displayDrawer={true} />
         </div>
         <div className='line-div' />
-        <Login />
+        <BodySectionWithMarginBottom title='Log in to continue'>
+          <Login />
+        </BodySectionWithMarginBottom>
         <div className='line-div' />
         <Footer />
       </>
