@@ -26,6 +26,7 @@ class App extends React.Component{
   constructor(props) {
     super(props);
     this.isLoggedIn = this.props.isLoggedIn;
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   static propTypes = {

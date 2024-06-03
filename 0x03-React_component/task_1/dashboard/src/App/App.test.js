@@ -1,6 +1,8 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
+import { act } from 'react-dom/test-utils';
+import { render, unmountComponentAtNode } from 'react-dom';
 
 test('App renders without crashing', () => {
     shallow(<App />);
@@ -42,6 +44,39 @@ describe('when logged in', () => {
         expect(wrapper.find('Login').length).toBe(0);
     });
 });
+
+let container = null;
+beforeEach(() => {
+  container = document.createElement("div");
+  document.body.appendChild(container);
+});
+
+afterEach(() => {
+  unmountComponentAtNode(container);
+  container.remove();
+});
+
+test('when the keys control and h are pressed the logOut function, passed as a prop, is called and the alert function is called with the string Logging you out', () => {
+    const logOut = jest.fn();
+    window.alert = jest.fn();
+    act(() => {
+      render(<App logOut={logOut} />, container);
+    });
+    const event = new KeyboardEvent('keydown', {key: 'h', ctrlKey: true});
+    window.dispatchEvent(event);
+    expect(logOut).toHaveBeenCalled();
+    expect(window.alert).toHaveBeenCalledWith('Logging you out');
+});
+
+// test('when the keys control and h are pressed the logOut function, passed as a prop, is called and the alert function is called with the string Logging you out', () => {
+//     const logOut = jest.fn();
+//     window.alert = jest.fn();
+//     const wrapper = shallow(<App isLoggedIn={true} logOut={logOut} />);
+//     const event = new KeyboardEvent('keydown', {key: 'h', ctrlKey: true});
+//     window.dispatchEvent(event);
+//     expect(logOut).toHaveBeenCalled();
+//     expect(window.alert).toHaveBeenCalledWith('Logging you out');
+// });
 
 // test('App renders a div with the class App-header', () => {
 //     const wrapper = shallow(<App />);
