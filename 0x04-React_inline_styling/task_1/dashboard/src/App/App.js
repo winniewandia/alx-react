@@ -1,6 +1,5 @@
 import Notifications from '../Notifications/Notifications';
 import React from 'react';
-import './App.css';
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Footer from '../Footer/Footer';
@@ -10,6 +9,7 @@ import { getLatestNotification } from '../utils/utils';
 import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom';
 import BodySection from '../BodySection/BodySection';
 import WithLogging from '../HOC/WithLogging';
+import { StyleSheet, css } from 'aphrodite';
 
 
 const listCourses = [
@@ -62,37 +62,55 @@ class App extends React.Component{
   if (this.props.isLoggedIn) {
     return(
       <div className='App'>
+        <div className={css(styles.headerNotification)}>
         <Header />
         <Notifications displayDrawer={true} listNotifications={listNotifications} />
-
-        <div className='line-div' />
+        </div>
+        <div className={css(styles.line)} />
         <BodySectionWithMarginBottom title='Course list'>
           <CourseList listCourses={listCourses} />
         </BodySectionWithMarginBottom>
         <BodySection title="News from the School">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </BodySection>
-        <div className='line-div' />
+        <div className={css(styles.line)} />
         <Footer />
       </div>
     );
   } else {
     return(
       <>
-        <div className='headerNotification'>
+        <div className={css(styles.headerNotification)}>
         <Header />
         <Notifications displayDrawer={true} />
         </div>
-        <div className='line-div' />
+        <div className={css(styles.line)} />
         <BodySectionWithMarginBottom title='Log in to continue'>
           <LoggedInComponent />
         </BodySectionWithMarginBottom>
-        <div className='line-div' />
+        <div className={css(styles.line)} />
         <Footer />
       </>
     );
   }
 }
 }
+
+const styles = StyleSheet.create({
+  line: {
+    height: '3px',
+    backgroundColor: '#D93847',
+    // alignContent: 'center',
+    paddingRight: '10px',
+    paddingLeft: '10px',
+  },
+  headerNotification: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    // backgroundColor: '#D93847',
+    // borderBottom: '3px solid #FFF',
+  }
+});
 
 export default App;

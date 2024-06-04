@@ -1,6 +1,7 @@
 import CourseListRow from "./CourseListRow";
 import { shallow } from "enzyme";
 import React from "react";
+import { StyleSheetTestUtils } from "aphrodite";
 
 test("if header is true and textSecondCell is null, CourseListRow renders a th with colSpan 2", () => {
   const wrapper = shallow(

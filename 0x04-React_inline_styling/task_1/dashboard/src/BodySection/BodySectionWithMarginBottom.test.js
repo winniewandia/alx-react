@@ -1,7 +1,14 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import BodySectionWithMarginBottom from './BodySectionWithMarginBottom';
+import { StyleSheetTestUtils } from 'aphrodite';
 
+beforeEach(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
+afterEach(() => {
+  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+});
 test('shallowing the component should render correctly the children and one h2 element', () => {
     const wrapper = shallow(
         <BodySectionWithMarginBottom title='Title'>

@@ -1,7 +1,14 @@
 import Login from "./Login";
 import { shallow } from "enzyme";
 import React from 'react';
+import { StyleSheetTestUtils } from 'aphrodite';
 
+beforeEach(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
+afterEach(() => {
+  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+});
 test('Login renders without crashing', () => {
     shallow(<Login />);
 });

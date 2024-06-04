@@ -1,8 +1,8 @@
 import React from 'react';
-import './Notifications.css';
 import closeIcon from '../assets/close-icon.png';
 import NotificationItem from './NotificationItem';
 import PropTypes from 'prop-types';
+import {css, StyleSheet} from 'aphrodite';
 
 class Notification extends React.Component {
     constructor(props) {
@@ -32,23 +32,23 @@ class Notification extends React.Component {
     render() {
     if (this.props.listNotifications.length === 0 && this.props.displayDrawer) {
         return (
-            <div className='menuItem'>
+            <div className={css(styles.menuItem)}>
                 <p>Your notifications</p>
                 <p>No new notification for now</p>
             </div>
         );
     } else if (this.props.listNotifications.length !== 0 && this.props.displayDrawer === true) {
         return (
-            <div className='menuItem'>
+            <div className={css(styles.menuItem)}>
                 <p>Your notifications</p>
-                <div className='Notifications'>
-                    <div className='buttonP'>
+                <div className={css(styles.notifications)}>
+                    <div className={css(styles.buttonP)}>
                         <p>Here is the list of notifications</p>
                         <button
                             style={{border: 'none', background: 'transparent'}}
                             aria-label='Close'
                             onClick={() => console.log('Close button has been clicked')}>
-                            <img src= {closeIcon} alt='Close icon' className='closeImage' />
+                            <img src= {closeIcon} alt='Close icon' className={css(styles.closeImage)} />
                         </button>
                     </div>
                     <ul className='unorderedList'>
@@ -70,30 +70,28 @@ class Notification extends React.Component {
         return null;
     }
     }
-    // return (
-    //     <>
-    //     <div className='menuItem'>
-    //         <p>Your notifications</p>
-    //     </div>
-    //     {displayDrawer && (
-    //     <div className='Notifications'>
-    //         <p>Here is the list of notifications</p>
-    //         {listNotifications && (
-    //         <p>No new notification for now</p>)}
-    //         <ul className='unorderedList'>
-    //             {listNotifications.map((notification) => (
-    //                 <NotificationItem key={notification.id} type={notification.type} value={notification.value} html={notification.html} />
-    //             ))}
-    //         </ul>
-    //         <button
-    //             style={{position: 'absolute', right: '0', border: 'none', background: 'transparent'}}
-    //             aria-label='Close'
-    //             onClick={() => console.log('Close button has been clicked')}>
-    //             <img src= {closeIcon} alt='Close icon' className='closeImage' />
-    //         </button>
-    //     </div>)}
-    //     </>
-    // );
 }
+
+const styles = StyleSheet.create({
+    buttonP: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: "space-between",
+    },
+    closeImage: {
+        width: '20px',
+        height: '20px',
+    },
+    menuItem: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: "flex-end",
+    },
+    notifications: {
+        border: '2px dashed #D93847',
+        padding: '10px',
+        marginBottom: '10px',
+    }
+});
 
 export default Notification;
