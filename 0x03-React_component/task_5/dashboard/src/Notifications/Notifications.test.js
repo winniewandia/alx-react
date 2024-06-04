@@ -6,6 +6,22 @@ test('Notifications renders without crashing', () => {
   shallow(<Notifications type="default"/>);
 });
 
+test('should verify that when updating the props of the component with the same list, the component doesn’t rerender', () => {
+    const wrapper = shallow(<Notifications displayDrawer={true} />);
+    const shouldComponentUpdate = jest.spyOn(Notifications.prototype, 'shouldComponentUpdate');
+    wrapper.setProps({ displayDrawer: true });
+    expect(shouldComponentUpdate).toHaveBeenCalled();
+    shouldComponentUpdate.mockRestore();
+});
+
+test('should verify that when updating the props of the component with a longer list, the component does rerender', () => {
+    const wrapper = shallow(<Notifications displayDrawer={true} />);
+    const shouldComponentUpdate = jest.spyOn(Notifications.prototype, 'shouldComponentUpdate');
+    wrapper.setProps({ displayDrawer: true, listNotifications: [{ id: 1, type: 'default', value: 'test' }, { id: 2, type: 'urgent', value: 'test' }] });
+    expect(shouldComponentUpdate).toHaveBeenCalled();
+    shouldComponentUpdate.mockRestore();
+});
+
 // test('Notifications renders a list of notifications', () => {
 //     const wrapper = shallow(<Notifications displayDrawer={true} />);
 //     expect(wrapper.find('.unorderedList NotificationItem').length).toBe(3);

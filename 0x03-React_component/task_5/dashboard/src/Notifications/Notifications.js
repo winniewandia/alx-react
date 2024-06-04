@@ -11,6 +11,10 @@ class Notification extends React.Component {
         this.listNotifications = this.props.listNotifications;
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        return nextProps.listNotifications.length > this.props.listNotifications.length;
+    }
+
     static propTypes = {
         displayDrawer: PropTypes.bool,
         listNotifications: PropTypes.array
