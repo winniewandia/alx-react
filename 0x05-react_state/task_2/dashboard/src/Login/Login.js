@@ -5,34 +5,35 @@ import { StyleSheet, css } from 'aphrodite';
 class Login extends React.Component {
   constructor(props) {
     super(props);
+    this.login = this.props.login;
     this.state = {
-      isLoggedIn: false,
       email: '',
       password: '',
       enableSubmit: false,
     };
-    // this.handleChangeEmail = this.handleChange.bind(this);
-    // this.handleChangePassword = this.handleChange.bind(this);
-    // this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
   }
 
   handleLoginSubmit = (event) => {
-    this.setState({ isLoggedIn: true });
+    this.props.login(this.state.email, this.state.password);
+    // console.log('Logging in');
+    // this.setState({ isLoggedIn: true });
     event.preventDefault();
   }
 
   handleChangeEmail = (event) => {
-    this.setState({ email: event.target.value });
-    if (event.target.value !== '' && this.state.password !== '') {
-      this.setState({ enableSubmit: true });
-    }
+    this.setState({ email: event.target.value }, () => {
+      if (this.state.email !== '' && this.state.password !== '') {
+        this.setState({ enableSubmit: true });
+      }
+    });
   }
 
   handleChangePassword = (event) => {
-    this.setState({ password: event.target.value });
-    if (event.target.value !== '' && this.state.email !== '') {
-      this.setState({ enableSubmit: true });
-    }
+    this.setState({ password: event.target.value }, () => {
+      if (this.state.password !== '' && this.state.email !== '') {
+        this.setState({ enableSubmit: true });
+      }
+    });
   }
   render() {
   return (
