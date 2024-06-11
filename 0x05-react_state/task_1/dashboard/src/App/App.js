@@ -109,9 +109,9 @@ class App extends React.Component{
         <BodySectionWithMarginBottom title='Log in to continue'>
           <LoggedInComponent />
         </BodySectionWithMarginBottom>
-        <BodySection title="News from the School">
+        {/* <BodySection title="News from the School">
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </BodySection>
+        </BodySection> */}
         </div>
         <div className={css(styles.line)} />
         <Footer />
