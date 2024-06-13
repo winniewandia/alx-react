@@ -12,5 +12,5 @@ export function mergeElementsToList(page1, page2) {
   const list1 = Map(page1);
   const list2 = Map(page2);
   const list3 = list1.merge(list2);
-  return list3;
+  return list3.toJS();
 }
