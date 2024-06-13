@@ -9,5 +9,6 @@ export default function printBestStudents(object) {
       lastName: student.lastName.charAt(0).toUpperCase() + student.lastName.slice(1),
     }));
     const result = capitalized.toJS();
+    console.log(result);
     return result;
 }
