@@ -1,6 +1,7 @@
 const { fromJS } = require('immutable');
 
-export function accessImmutableObject(object, array) {
-  nested = fromJS(object);
-  return nested.getIn(array);
+export default function accessImmutableObject(object, array) {
+  const nested = fromJS(object);
+  const value = nested.getIn(array);
+  return value === undefined ? undefined : value.toJS();
 }
