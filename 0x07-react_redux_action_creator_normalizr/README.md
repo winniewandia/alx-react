@@ -5,4 +5,4 @@
 4. Create actions for the UI
 5. Create actions for the notification list
 6. Bound the actions
-
+7. Async Action Creators
