@@ -3,3 +3,4 @@
 2. Create a reducer for Courses
 3. Create the reducer for notifications
 4. Normalizr & Immutable
+5. Selectors
